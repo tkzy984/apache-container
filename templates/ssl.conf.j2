@@ -1,6 +1,6 @@
 {% if APACHE_SSL == 1 %}
 Listen {{ APACHE_SSL_PORT }} https
-<VirtualHost _default_:443>
+<VirtualHost _default_:8443>
 SSLEngine on
 SSLProtocol {{ APACHE_SSL_PROTOCOLS }}
 SSLCipherSuite {{ APACHE_SSL_CIPHER_SUITE }}

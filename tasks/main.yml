@@ -7,7 +7,7 @@
   - rsync
 
 - name: Add entrypoint script
-  copy:
+  template:
    src: entrypoint.sh
    dest: /entrypoint.sh
    owner: root
@@ -31,7 +31,10 @@
     src: "./site/"
     dest: "/var/www/html/"
 
-- file: name=/run/httpd state=directory owner=apache
+- file: name="{{item}}" state=directory owner=apache
+  with_items:
+  - /run/httpd
+  - /etc/httpd/ssl
 
 - name: Cleanup
   shell: yum clean all -y

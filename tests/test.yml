@@ -4,20 +4,21 @@
   connection: local
   gather_facts: no
   vars:
-    host_ip: 127.0.0.1
+    host_addr: 127.0.0.1
   vars_files:
     - ../defaults/main.yml
   tasks:
     - name: Wait for service to be available
       wait_for:
-        host: "{{ host_ip }}"
-        port: 80
+        host: "{{ host_addr }}"
+        port: 443
         delay: 1
         timeout: 15
 
     - name: Query the home page
       uri:
-        url: "http://{{ host_ip }}:80"
+        url: "https://{{ host_addr }}:443"
+        validate_certs: no
         return_content: yes
       register: output
 
