@@ -1,0 +1,8 @@
+Listen 443 https
+<VirtualHost _default_:443>
+SSLEngine on
+SSLProtocol {{ APACHE_SSL_PROTOCOLS }}
+SSLCipherSuite {{ APACHE_SSL_CIPHER_SUITE }}
+SSLCertificateFile /etc/httpd/ssl/cert.crt
+SSLCertificateKeyFile /etc/httpd/ssl/cert.key
+</VirtualHost>

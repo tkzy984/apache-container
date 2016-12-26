@@ -1,0 +1,27 @@
+---
+- name: Install Packages.
+  package: name={{item}} state=installed
+  with_items:
+  - httpd
+  - mod_ssl
+
+- name: Add entrypoint script
+  copy:
+   src: entrypoint.sh
+   dest: /entrypoint.sh
+   owner: root
+   group: root
+   mode: 0775
+
+- name: Add main config
+  template: 
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+
+- name: Add includes to config
+  template: 
+    src: "{{item}}.j2"
+    dest: "/etc/httpd/conf.d/{{item}}"
+  with_items:
+    - ssl.conf
+    - vhost.inc

@@ -1,0 +1,14 @@
+apache:
+  image: centos:7
+  entrypoint: ['/entrypoint.sh']
+  working_dir: /
+  user: apache
+  environment:
+    APACHE_HOSTNAME: {{ APACHE_HOSTNAME | default('localhost') }}
+    APACHE_SSL: {{ APACHE_SSL | default(0) }}
+    APACHE_SSL_PROTOCOL: {{ APACHE_SSL_PROTOCOL | default("All -SSLv2 -SSLv3") }}
+    APACHE_SSL_CIPHER_SUITE: {{ APACHE_SSL_CIPHER_SUITE | default("AES256+EECDH:AES256+EDH") }}
+    APACHE_EXTRA_PARAMETERS: {{ APACHE_EXTRA_PARAMETERS | default([]) }}
+  ports:
+    - 80:80
+    - 443:443
