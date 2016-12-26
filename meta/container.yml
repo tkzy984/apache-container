@@ -4,5 +4,5 @@ apache:
   working_dir: /
   user: apache
   ports:
-    - 80:80
-    - 443:443
+    - 80:8080
+    - 443:8443

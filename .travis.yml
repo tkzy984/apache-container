@@ -34,11 +34,15 @@ script:
   - ansible-container build
 
   # Start the service
-  - ansible-container run -d
-  - docker ps
+  - ansible-container run -d 
+  - docker inspect ansible_apache_1 
+  - docker exec -it ansible_apache_1 ls -l /var/www/html/
+  - docker logs ansible_apache_1
 
   # Run tests
   - ansible-playbook test.yml
+  
+  - docker logs ansible_apache_1
 
 notifications:
   email: false

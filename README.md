@@ -27,7 +27,7 @@ APACHE_HOSTNAME
 APACHE_SSL
 > use ssl. If /etc/httpd/ssl/cert.crt and /etc/httpd/ssl/cert.key files exists - they will be used, if not - self-signed certificate will be generated  (0 - no / 1 - yes, default: 0)
 
-APACHE_SSL_PROTOCOL
+APACHE_SSL_PROTOCOLS
 > SSL protocol (default "All -SSLv2 -SSLv3")
 
 APACHE_SSL_CIPHER_SUITE

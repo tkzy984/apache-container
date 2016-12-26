@@ -4,6 +4,7 @@
   with_items:
   - httpd
   - mod_ssl
+  - rsync
 
 - name: Add entrypoint script
   copy:
@@ -25,3 +26,12 @@
   with_items:
     - ssl.conf
     - vhost.inc
+
+- synchronize:
+    src: "./site/"
+    dest: "/var/www/html/"
+
+- file: name=/run/httpd state=directory owner=apache
+
+- name: Cleanup
+  shell: yum clean all -y
