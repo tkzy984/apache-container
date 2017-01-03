@@ -1,7 +1,7 @@
 Apache
 ======
 
-[![Build Status](https://travis-ci.org/awasilyev/apache-container.svg?branch=master)](https://travis-ci.org/awasilyev/memcached-container)
+[![Build Status](https://travis-ci.org/awasilyev/apache-container.svg?branch=master)](https://travis-ci.org/awasilyev/ansible-container)
 
 Use this role to add an apache httpd service to your [Ansible Container](https://github.com/ansible/ansible-container) project. See Role Variables below for how to configure SSL and additional parameters. 
 
