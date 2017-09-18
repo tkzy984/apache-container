@@ -19,7 +19,7 @@ DocumentRoot "/var/www/html"
 </Files>
 
 ErrorLog "/dev/stderr"
-LogLevel warn
+LogLevel {{ APACHE_LOG_LEVEL }}
 
 <IfModule log_config_module>
     LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
@@ -43,7 +43,7 @@ EnableSendfile on
 
 IncludeOptional conf.d/*.conf
 
-<VirtualHost _default_:80>
+<VirtualHost _default_:8080>
     include conf.d/vhost.inc
 </VirtualHost>
 
